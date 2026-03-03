@@ -3,159 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Palabras y Caracteres Gratis</title>
-    <meta name="description" content="Herramienta gratuita para contar palabras, caracteres y párrafos online. Ideal para estudiantes y profesionales.">
+    <title>Contador de Palabras y Caracteres Online | Gratis y Rápido</title>
+    <meta name="description" content="La herramienta gratuita más rápida para contar palabras, caracteres y párrafos en tiempo real. Ideal para SEO, tareas y redes sociales.">
+    <link rel="canonical" href="https://contadordepalabrasonline.es" />
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        header {
-            background-color: #0056b3;
-            color: white;
-            width: 100%;
-            padding: 20px 0;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            max-width: 800px;
-            margin: 20px 0;
-        }
-        textarea {
-            width: 100%;
-            height: 250px;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            resize: vertical;
-            box-sizing: border-box;
-        }
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            background-color: white;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .stat-box {
-            text-align: center;
-            font-size: 1.2em;
-        }
-        .stat-box span {
-            display: block;
-            font-size: 2em;
-            font-weight: bold;
-            color: #0056b3;
-        }
-        /* Estilos para el espacio publicitario */
-        .ad-container {
-            width: 100%;
-            max-width: 800px;
-            height: 90px;
-            background-color: #e9ecef;
-            border: 1px dashed #adb5bd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6c757d;
-            margin: 20px 0;
-            text-align: center;
-        }
+        :root { --primary: #0056b3; --bg: #f8f9fa; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
+        header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .wrapper { max-width: 900px; margin: 0 auto; padding: 20px; }
+        
+        /* Área de Trabajo */
+        textarea { width: 100%; height: 280px; padding: 20px; border: 2px solid #ddd; border-radius: 12px; font-size: 18px; box-sizing: border-box; transition: border 0.3s; }
+        textarea:focus { border-color: var(--primary); outline: none; }
+        
+        /* Estadísticas */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-card { background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .stat-card span { display: block; font-size: 2.5rem; font-weight: bold; color: var(--primary); }
+        
+        /* SEO Content */
+        .seo-content { background: white; padding: 30px; border-radius: 12px; margin-top: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); }
+
+        /* Ads */
+        .ad-slot { background: #eee; border: 1px dashed #bbb; margin: 20px 0; text-align: center; padding: 10px; min-height: 90px; color: #888; display: flex; align-items: center; justify-content: center; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #666; }
+        .legal-links a { color: var(--primary); text-decoration: none; margin: 0 10px; cursor: pointer; }
+        #legalModal { display:none; background: #fff; border: 1px solid #ccc; padding: 20px; margin-top: 20px; text-align: left; border-radius: 8px; }
     </style>
-    </head>
+</head>
 <body>
 
     <header>
         <h1>Contador de Palabras Online</h1>
+        <p>Herramienta profesional gratuita y sin registros</p>
     </header>
 
-    <div class="ad-container">
-        <p>Espacio para tu bloque de anuncios de Google AdSense (Banner Horizontal)</p>
+    <div class="wrapper">
+        <div class="ad-slot">Espacio para Banner de Google Adsense (Horizontal)</div>
+
+        <textarea id="mainText" placeholder="Escribe o pega aquí tu texto..."></textarea>
+
+        <div class="stats-grid">
+            <div class="stat-card">Palabras<span id="wordCount">0</span></div>
+            <div class="stat-card">Caracteres<span id="charCount">0</span></div>
+            <div class="stat-card">Sin Espacios<span id="noSpaceCount">0</span></div>
+            <div class="stat-card">Párrafos<span id="paraCount">0</span></div>
         </div>
 
-    <div class="container">
-        <textarea id="textInput" placeholder="Escribe o pega tu texto aquí para empezar a contar..."></textarea>
-        
-        <div class="stats">
-            <div class="stat-box">Palabras <span id="wordCount">0</span></div>
-            <div class="stat-box">Caracteres <span id="charCount">0</span></div>
-            <div class="stat-box">Sin Espacios <span id="charNoSpaceCount">0</span></div>
-        </div>
+        <div class="ad-slot" style="min-height: 250px;">Espacio para Banner de Google Adsense (Rectángulo)</div>
+
+        <article class="seo-content">
+            <h2>¿Por qué usar un contador de palabras?</h2>
+            <p>En el mundo digital actual, el contenido es el rey. Ya seas un estudiante redactando un ensayo, un periodista preparando una noticia o un experto en SEO optimizando un artículo, el <strong>conteo de palabras y caracteres</strong> es una métrica fundamental.</p>
+            
+            <h3>Optimización para Redes Sociales</h3>
+            <p>Cada plataforma tiene sus límites. Twitter (X) permite 280 caracteres, mientras que las descripciones de Instagram o los títulos de vídeos en YouTube requieren precisión. Nuestra herramienta te ayuda a ajustar tu mensaje para que nunca se corte.</p>
+
+            <h3>SEO y Longitud de Artículos</h3>
+            <p>Google suele preferir contenido detallado. Un buen artículo de blog suele tener entre 1,000 y 2,000 palabras. Con nuestra herramienta, puedes monitorizar tu progreso en tiempo real sin necesidad de software pesado como Microsoft Word.</p>
+            
+            <h3>Uso Escolar y Académico</h3>
+            <p>Muchos profesores exigen un mínimo de palabras para trabajos académicos. Con "Contador de Palabras Online", solo tienes que pegar tu texto y sabrás al instante si has cumplido con los requisitos de tu entrega.</p>
+        </article>
+
+        <div class="ad-slot">Espacio para Banner de Google Adsense (Horizontal)</div>
     </div>
 
-    <div class="ad-container" style="height: 250px;">
-        <p>Espacio para tu bloque de anuncios de Google AdSense (Banner Cuadrado)</p>
+    <footer>
+        <div class="legal-links">
+            <a onclick="showL('aviso')">Aviso Legal</a> | 
+            <a onclick="showL('priv')">Privacidad</a> | 
+            <a onclick="showL('cook')">Cookies</a>
         </div>
+        <p>&copy; 2026 contadordepalabrasonline.es - Hecho para ser rápido.</p>
+
+        <div id="legalModal">
+            <div id="lContent"></div>
+            <button onclick="document.getElementById('legalModal').style.display='none'">Cerrar</button>
+        </div>
+    </footer>
 
     <script>
-        const textInput = document.getElementById('textInput');
-        const wordCount = document.getElementById('wordCount');
-        const charCount = document.getElementById('charCount');
-        const charNoSpaceCount = document.getElementById('charNoSpaceCount');
+        const textarea = document.getElementById('mainText');
+        
+        textarea.addEventListener('input', () => {
+            const text = textarea.value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const paragraphs = text.trim() ? text.split(/\n+/).filter(p => p.trim() !== '').length : 0;
 
-        textInput.addEventListener('input', function() {
-            let text = this.value;
-            
-            // Contar caracteres
-            charCount.textContent = text.length;
-            
-            // Contar caracteres sin espacios
-            charNoSpaceCount.textContent = text.replace(/\s/g, '').length;
-            
-            // Contar palabras
-            let words = text.trim().split(/\s+/);
-            if (text.trim() === '') {
-                wordCount.textContent = 0;
-            } else {
-                wordCount.textContent = words.length;
-            }
+            document.getElementById('wordCount').textContent = words;
+            document.getElementById('charCount').textContent = text.length;
+            document.getElementById('noSpaceCount').textContent = text.replace(/\s/g, '').length;
+            document.getElementById('paraCount').textContent = paragraphs;
         });
+
+        function showL(type) {
+            const m = document.getElementById('legalModal');
+            const c = document.getElementById('lContent');
+            m.style.display = 'block';
+            if(type==='aviso') c.innerHTML = "<h3>Aviso Legal</h3><p>Este sitio web es una herramienta gratuita. No almacenamos los textos que introduces; el procesamiento se hace en tu propio navegador.</p>";
+            if(type==='priv') c.innerHTML = "<h3>Política de Privacidad</h3><p>Utilizamos Google AdSense para mostrar publicidad. Google puede utilizar cookies para personalizar los anuncios según tus intereses.</p>";
+            if(type==='cook') c.innerHTML = "<h3>Política de Cookies</h3><p>Usamos cookies para analítica y publicidad personalizada. Al usar la web, aceptas su uso.</p>";
+            window.scrollTo(0, document.body.scrollHeight);
+        }
     </script>
-    <hr>
-<footer style="padding: 20px; text-align: center; font-size: 0.9em; color: #666;">
-    <div class="legal-links">
-        <a href="#aviso-legal" onclick="showLegal('aviso')">Aviso Legal</a> | 
-        <a href="#privacidad" onclick="showLegal('privacidad')">Política de Privacidad</a> | 
-        <a href="#cookies" onclick="showLegal('cookies')">Política de Cookies</a>
-    </div>
-    <p>&copy; 2026 Contador de Palabras Online - Tu herramienta rápida y gratuita.</p>
-
-    <div id="legalContent" style="display:none; text-align: left; margin-top: 20px; background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
-        <div id="avisoText">
-            <h3>Aviso Legal</h3>
-            <p>En cumplimiento de la Ley 34/2002, le informamos que este sitio web es una herramienta de utilidad gratuita. El uso de esta web implica la aceptación de los términos de uso.</p>
-        </div>
-        <div id="privacidadText">
-            <h3>Política de Privacidad</h3>
-            <p>Utilizamos Google AdSense para mostrar anuncios. Google utiliza cookies para mostrar anuncios basados en las visitas anteriores del usuario a este sitio web o a otros sitios web.</p>
-            <p>Los usuarios pueden inhabilitar la publicidad personalizada visitando Preferencias de anuncios de Google.</p>
-        </div>
-        <div id="cookiesText">
-            <h3>Política de Cookies</h3>
-            <p>Este sitio utiliza cookies propias y de terceros (Google Analytics y AdSense) para mejorar la experiencia y mostrar publicidad relevante.</p>
-        </div>
-        <button onclick="document.getElementById('legalContent').style.display='none'" style="margin-top:10px; cursor:pointer;">Cerrar</button>
-    </div>
-</footer>
-
-<script>
-function showLegal(type) {
-    document.getElementById('legalContent').style.display = 'block';
-    document.getElementById('avisoText').style.display = (type === 'aviso') ? 'block' : 'none';
-    document.getElementById('privacidadText').style.display = (type === 'privacidad') ? 'block' : 'none';
-    document.getElementById('cookiesText').style.display = (type === 'cookies') ? 'block' : 'none';
-    window.scrollTo(0,document.body.scrollHeight);
-}
-</script>
 </body>
 </html>
