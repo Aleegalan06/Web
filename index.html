@@ -13,41 +13,31 @@
         header { background: var(--primary); color: white; padding: 2rem 1rem; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .wrapper { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        /* Área de Trabajo */
         textarea { width: 100%; height: 280px; padding: 20px; border: 2px solid #ddd; border-radius: 12px; font-size: 18px; box-sizing: border-box; transition: border 0.3s; }
         textarea:focus { border-color: var(--primary); outline: none; }
         
-        /* Estadísticas */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
         .stat-card { background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .stat-card span { display: block; font-size: 2.5rem; font-weight: bold; color: var(--primary); }
         
-        /* SEO Content */
         .seo-content { background: white; padding: 30px; border-radius: 12px; margin-top: 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); }
+        h2, h3 { color: var(--primary); }
 
-        /* Ads */
-        .ad-slot { background: #eee; border: 1px dashed #bbb; margin: 20px 0; text-align: center; padding: 10px; min-height: 90px; color: #888; display: flex; align-items: center; justify-content: center; }
-
-        /* Footer */
         footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #666; }
         .legal-links a { color: var(--primary); text-decoration: none; margin: 0 10px; cursor: pointer; }
-        #legalModal { display:none; background: #fff; border: 1px solid #ccc; padding: 20px; margin-top: 20px; text-align: left; border-radius: 8px; }
+        #legalModal { display:none; background: #fff; border: 1px solid #ccc; padding: 20px; margin-top: 20px; text-align: left; border-radius: 8px; position: relative; }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8635863654091532"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8635863654091532" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <header>
         <h1>Contador de Palabras Online</h1>
-        <p>Herramienta profesional gratuita y sin registros</p>
+        <p>Herramienta profesional gratuita para redactores, estudiantes y expertos SEO</p>
     </header>
 
     <div class="wrapper">
-        <div class="ad-slot">Espacio para Banner de Google Adsense (Horizontal)</div>
-
-        <textarea id="mainText" placeholder="Escribe o pega aquí tu texto..."></textarea>
+        <textarea id="mainText" placeholder="Escribe o pega aquí tu texto para analizarlo en tiempo real..."></textarea>
 
         <div class="stats-grid">
             <div class="stat-card">Palabras<span id="wordCount">0</span></div>
@@ -56,23 +46,28 @@
             <div class="stat-card">Párrafos<span id="paraCount">0</span></div>
         </div>
 
-        <div class="ad-slot" style="min-height: 250px;">Espacio para Banner de Google Adsense (Rectángulo)</div>
-
         <article class="seo-content">
-            <h2>¿Por qué usar un contador de palabras?</h2>
-            <p>En el mundo digital actual, el contenido es el rey. Ya seas un estudiante redactando un ensayo, un periodista preparando una noticia o un experto en SEO optimizando un artículo, el <strong>conteo de palabras y caracteres</strong> es una métrica fundamental.</p>
+            <h2>Análisis de Texto y Productividad</h2>
+            <p>Nuestra herramienta de <strong>conteo de palabras y caracteres</strong> ha sido diseñada para ofrecer la máxima precisión. Es fundamental para cumplir con los estándares de calidad en la redacción digital moderna.</p>
             
-            <h3>Optimización para Redes Sociales</h3>
-            <p>Cada plataforma tiene sus límites. Twitter (X) permite 280 caracteres, mientras que las descripciones de Instagram o los títulos de vídeos en YouTube requieren precisión. Nuestra herramienta te ayuda a ajustar tu mensaje para que nunca se corte.</p>
+            <h3>Límites en Redes Sociales (Guía 2026)</h3>
+            <p>Si eres Community Manager, sabes que cada carácter cuenta. Aquí te recordamos los límites actuales para que tus publicaciones nunca queden incompletas:</p>
+            <ul>
+                <li><strong>Twitter (X):</strong> 280 caracteres por publicación.</li>
+                <li><strong>Instagram:</strong> 2.200 caracteres en el pie de foto.</li>
+                <li><strong>LinkedIn:</strong> 3.000 caracteres para publicaciones de muro.</li>
+                <li><strong>YouTube:</strong> 5.000 caracteres en la descripción del vídeo.</li>
+            </ul>
 
-            <h3>SEO y Longitud de Artículos</h3>
-            <p>Google suele preferir contenido detallado. Un buen artículo de blog suele tener entre 1,000 y 2,000 palabras. Con nuestra herramienta, puedes monitorizar tu progreso en tiempo real sin necesidad de software pesado como Microsoft Word.</p>
+            <h3>Importancia para el SEO</h3>
+            <p>En el posicionamiento web, la extensión del contenido es un factor clave. Aunque no existe una cifra mágica, los estudios indican que los artículos que superan las 1.500 palabras tienden a posicionar mejor en Google, siempre que aporten valor real al usuario. Con nuestro contador, puedes medir exactamente cuánto te falta para alcanzar tus objetivos de contenido.</p>
             
-            <h3>Uso Escolar y Académico</h3>
-            <p>Muchos profesores exigen un mínimo de palabras para trabajos académicos. Con "Contador de Palabras Online", solo tienes que pegar tu texto y sabrás al instante si has cumplido con los requisitos de tu entrega.</p>
+            <h3>¿Cómo contamos las palabras?</h3>
+            <p>Nuestro algoritmo utiliza expresiones regulares para identificar espacios en blanco y saltos de línea, separando cada unidad léxica de forma individual. Esto garantiza que símbolos o caracteres especiales no distorsionen el conteo final de tu trabajo escolar o profesional.</p>
+
+            <h3>Diferencia entre caracteres con y sin espacios</h3>
+            <p>Muchos concursos literarios y editoriales piden el conteo "sin espacios". Los espacios en blanco son caracteres invisibles que ocupan bytes, pero no contenido semántico. Nuestra herramienta te ofrece ambos datos de forma instantánea para que no cometas errores en tus entregas.</p>
         </article>
-
-        <div class="ad-slot">Espacio para Banner de Google Adsense (Horizontal)</div>
     </div>
 
     <footer>
@@ -81,10 +76,11 @@
             <a onclick="showL('priv')">Privacidad</a> | 
             <a onclick="showL('cook')">Cookies</a>
         </div>
-        <p>&copy; 2026 contadordepalabrasonline.es - Hecho para ser rápido.</p>
+        <p>&copy; 2026 contadordepalabrasonline.es - Herramienta de análisis de texto gratuita.</p>
 
         <div id="legalModal">
             <div id="lContent"></div>
+            <br>
             <button onclick="document.getElementById('legalModal').style.display='none'">Cerrar</button>
         </div>
     </footer>
@@ -107,9 +103,9 @@
             const m = document.getElementById('legalModal');
             const c = document.getElementById('lContent');
             m.style.display = 'block';
-            if(type==='aviso') c.innerHTML = "<h3>Aviso Legal</h3><p>Este sitio web es una herramienta gratuita. No almacenamos los textos que introduces; el procesamiento se hace en tu propio navegador.</p>";
-            if(type==='priv') c.innerHTML = "<h3>Política de Privacidad</h3><p>Utilizamos Google AdSense para mostrar publicidad. Google puede utilizar cookies para personalizar los anuncios según tus intereses.</p>";
-            if(type==='cook') c.innerHTML = "<h3>Política de Cookies</h3><p>Usamos cookies para analítica y publicidad personalizada. Al usar la web, aceptas su uso.</p>";
+            if(type==='aviso') c.innerHTML = "<h3>Aviso Legal</h3><p>El titular de contadordepalabrasonline.es ofrece esta herramienta de forma gratuita. No nos hacemos responsables del uso del contenido procesado. El procesamiento ocurre localmente en el navegador del usuario.</p>";
+            if(type==='priv') c.innerHTML = "<h3>Política de Privacidad</h3><p>Respetamos su privacidad. Este sitio utiliza Google AdSense para mostrar anuncios. Google utiliza cookies para mostrar anuncios basados en visitas anteriores. Puede inhabilitar los anuncios personalizados en la configuración de Google.</p>";
+            if(type==='cook') c.innerHTML = "<h3>Política de Cookies</h3><p>Este sitio web utiliza cookies técnicas para el funcionamiento y cookies de terceros (Google AdSense) para fines publicitarios. Al continuar navegando, acepta nuestra política de cookies.</p>";
             window.scrollTo(0, document.body.scrollHeight);
         }
     </script>
